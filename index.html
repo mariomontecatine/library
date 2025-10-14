@@ -14,34 +14,39 @@
     />
   </head>
   <body>
-    <form id="formulario" action="#">
-      <label for="title">Title:</label>
-      <input type="text" name="title" id="title" />
-      <label for="author">Author:</label>
-      <input type="text" name="author" id="author" />
-      <label for="pages">Pages:</label>
-      <input type="text" name="pages" id="pages" />
+    <header>
+      <h1>Montecatine Library</h1>
+    </header>
+    <main>
+      <form id="formulario" action="#">
+        <label for="title">Title:</label>
+        <input type="text" name="title" id="title" />
+        <label for="author">Author:</label>
+        <input type="text" name="author" id="author" />
+        <label for="pages">Pages:</label>
+        <input type="text" name="pages" id="pages" />
 
-      <button type="submit">Add book</button>
-    </form>
+        <button type="submit">Add book</button>
+      </form>
 
-    <div class="books-container">
-      <div class="book">
-        <h2>El Quijote</h2>
-        <p>Don Miguel de Cervantes</p>
-        <p>999</p>
+      <div class="books-container">
+        <div class="book">
+          <h2>El Quijote</h2>
+          <p>Don Miguel de Cervantes</p>
+          <p>999</p>
+        </div>
+        <div class="book">
+          <h2>Breves respuestas a las grandes preguntas</h2>
+          <p>Stephen Hawkings</p>
+          <p>351</p>
+        </div>
+        <div class="book">
+          <h2>Largas respuestas a las breves preguntas</h2>
+          <p>Mario</p>
+          <p>69</p>
+        </div>
       </div>
-      <div class="book">
-        <h2>Breves respuestas a las grandes preguntas</h2>
-        <p>Stephen Hawkings</p>
-        <p>351</p>
-      </div>
-      <div class="book">
-        <h2>Largas respuestas a las breves preguntas</h2>
-        <p>Mario</p>
-        <p>69</p>
-      </div>
-    </div>
+    </main>
     <script src="script.js" defer></script>
   </body>
 </html>

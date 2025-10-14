@@ -4,9 +4,26 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+
+  background-color: blanchedalmond;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
+  margin: 0;
+}
+
+header {
+  background-image: url(images/inaki-del-olmo-NIJuEQw0RKg-unsplash.jpg);
+  overflow: cover;
+}
+
+h1 {
+  text-align: center;
+}
+
+main {
   display: grid;
   grid-template-columns: 1fr 3fr;
   gap: 5vw;
@@ -27,6 +44,6 @@ body {
 .book {
   background-color: beige;
   padding: 2vw;
-  
 }
+
 
