@@ -46,11 +46,20 @@ function displayBooks() {
     pagesElem.textContent = `Pages: ${book.pages}`;
 
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = `<img src="images/trash-fill.svg" />`;
+    deleteButton.classList.add("deleteButton");
+
+    const trashLogo = document.createElement("img");
+    trashLogo.classList.add("logo");
+    trashLogo.src = "/images/trash-fill.svg";
+    trashLogo.alt = "Delete";
+    
+
+    deleteButton.appendChild(trashLogo);
 
     bookDiv.appendChild(titleElem);
     bookDiv.appendChild(authorElem);
     bookDiv.appendChild(pagesElem);
+    bookDiv.appendChild(deleteButton);
 
     booksContainer.appendChild(bookDiv);
   });
