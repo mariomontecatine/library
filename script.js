@@ -25,6 +25,9 @@ function addBookToLibrary() {
   myLibrary.push(book);
 
   displayBooks();
+
+  document.getElementById("formulario").closest("dialog").close(); // cierra el dialog
+  document.getElementById("formulario").reset(); // limpia el formulario
 }
 
 function displayBooks() {
