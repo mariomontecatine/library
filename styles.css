@@ -84,12 +84,12 @@ main {
 }
 
 dialog {
-  width: clamp(300px, 90%, 500px); 
+  width: clamp(300px, 90%, 500px);
   padding: 2rem;
   border-radius: 12px;
   border: none;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
-  position: relative; 
+  position: relative;
 }
 
 /* Estilo para el fondo oscuro cuando el dialog está abierto */
@@ -234,10 +234,16 @@ dialog[open] {
 }
 
 footer {
+  position: fixed;
   bottom: 0;
-  position: sticky;
+  left: 0;
+  width: 100%;
   text-align: center;
+  background-color: blanchedalmond;
+  padding: 10px 0;
   color: #333;
+  font-family: inherit;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
 }
 
 footer a {

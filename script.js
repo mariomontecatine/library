@@ -4,7 +4,7 @@ const book2 = new Book("Cien Años de Soledad", "Gabriel García Márquez", 496)
 const book3 = new Book(
   "Breves Respuestas a las Grandes Preguntas",
   "Stephen Hawking",
-  256 
+  256
 );
 
 myLibrary.push(book1, book2, book3);
