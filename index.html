@@ -43,10 +43,14 @@
           <button type="submit">Add book</button>
         </form>
       </dialog>
-      <button onclick="document.querySelector('dialog').showModal()">
-        <i class="bi bi-folder-plus"></i>
-      </button>
-
+      <div class="sidebar">
+        <button
+          class="open-dialog-btn"
+          onclick="document.querySelector('dialog').showModal()"
+        >
+          <i class="bi bi-folder-plus"></i>
+        </button>
+      </div>
       <div id="books-container"></div>
     </main>
     <script src="script.js" defer></script>

@@ -20,7 +20,7 @@ header {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 20vh;
+  height: 30vh;
 
   display: flex;
   justify-content: center;
@@ -34,7 +34,7 @@ h1 {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
   gap: 5vw;
   padding: 10px;
 }
@@ -74,4 +74,132 @@ main {
   position: absolute;
   bottom: 10px;
   right: 10px;
+}
+
+dialog {
+  width: clamp(300px, 90%, 500px); /* Ancho responsive */
+  padding: 2rem;
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
+  position: relative; /* Necesario para posicionar el botón de cierre */
+}
+
+/* Estilo para el fondo oscuro cuando el dialog está abierto */
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(3px); /* Efecto "cristal esmerilado" (opcional) */
+}
+
+/* Botón de cierre (la 'X') */
+#addBookButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: #888;
+  padding: 5px;
+  line-height: 1; /* Para alinear mejor el icono */
+  transition: color 0.2s ease;
+}
+
+#addBookButton:hover {
+  color: #000;
+}
+
+/* Estilo del formulario dentro del dialog */
+#formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* Espacio entre los elementos del formulario */
+  width: 100%; /* El formulario ocupa todo el ancho del dialog */
+}
+
+#formulario label {
+  font-weight: 600;
+  color: #333;
+}
+
+#formulario input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-family: inherit; /* Usa la misma fuente que el resto de la página */
+  font-size: 1rem;
+}
+
+#formulario input:focus {
+  outline: 2px solid #a38d77; /* Un color que combine con tu paleta */
+  border-color: transparent;
+}
+
+/* Botón de envío "Add book" */
+#formulario button[type="submit"] {
+  padding: 14px;
+  border: none;
+  border-radius: 6px;
+  background-color: #5a4b3c; /* Un color oscuro que contraste bien */
+  color: white;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem; /* Espacio extra arriba */
+  transition: background-color 0.2s ease;
+}
+
+#formulario button[type="submit"]:hover {
+  background-color: #3e342a;
+}
+
+/* === ANIMACIÓN OPCIONAL PARA EL DIALOG === */
+
+dialog[open] {
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+.open-dialog-btn {
+  width: 70px;         
+  height: 70px;        
+  border-radius: 50%;  
+  background-color: #5a4b3c; 
+  border: none;        
+  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: blanchedalmond; 
+  font-size: 2rem;       
+
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.open-dialog-btn:hover {
+  background-color: #3e342a; 
+  transform: scale(1.1);  
+}
+
+/* Añade esto a tu archivo styles.css */
+
+.sidebar {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center;    /* Centra verticalmente */
 }
