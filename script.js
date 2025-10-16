@@ -1,4 +1,9 @@
 const myLibrary = [];
+const book1 = new Book("El Quijote", "Miguel de Cervantes", 537);
+const book2 = new Book("Cien Años de Soledad", "Gabriel García Márquez", 496);
+
+myLibrary.push(book1, book2);
+displayBooks();
 
 function Book(title, author, pages) {
   if (!new.target) {
@@ -12,14 +17,41 @@ function Book(title, author, pages) {
 }
 
 function addBookToLibrary() {
-  // take params, create a book then store it in the array
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
-  let pages = document.getElementById("pages").value;
+  let pages = parseInt(document.getElementById("pages").value);
 
   const book = new Book(title, author, pages);
   myLibrary.push(book);
 
-  console.log('Añadido:', book);
-  console.log(`${myLibrary}`);
+  displayBooks();
+}
+
+function displayBooks() {
+  const booksContainer = document.getElementById("books-container");
+  booksContainer.innerHTML = "";
+
+  myLibrary.forEach((book) => {
+    const bookDiv = document.createElement("div");
+    bookDiv.classList.add("book");
+    bookDiv.id = book.id;
+
+    const titleElem = document.createElement("h3");
+    titleElem.textContent = book.title;
+
+    const authorElem = document.createElement("p");
+    authorElem.textContent = `Author: ${book.author}`;
+
+    const pagesElem = document.createElement("p");
+    pagesElem.textContent = `Pages: ${book.pages}`;
+
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = `<img src="images/trash-fill.svg" />`;
+
+    bookDiv.appendChild(titleElem);
+    bookDiv.appendChild(authorElem);
+    bookDiv.appendChild(pagesElem);
+
+    booksContainer.appendChild(bookDiv);
+  });
 }
