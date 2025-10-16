@@ -1,8 +1,13 @@
 const myLibrary = [];
 const book1 = new Book("El Quijote", "Miguel de Cervantes", 537);
 const book2 = new Book("Cien Años de Soledad", "Gabriel García Márquez", 496);
+const book3 = new Book(
+  "Breves Respuestas a las Grandes Preguntas",
+  "Stephen Hawking",
+  256 
+);
 
-myLibrary.push(book1, book2);
+myLibrary.push(book1, book2, book3);
 displayBooks();
 
 function Book(title, author, pages) {
@@ -12,6 +17,7 @@ function Book(title, author, pages) {
   this.title = title;
   this.author = author;
   this.pages = pages;
+  this.read = false;
 
   this.id = crypto.randomUUID();
 }
@@ -55,15 +61,35 @@ function displayBooks() {
     trashLogo.classList.add("logo");
     trashLogo.src = "/images/trash-fill.svg";
     trashLogo.alt = "Delete";
-    
+
+    const readButton = document.createElement("button");
+    readButton.textContent = book.read ? "Read" : "Not Read";
+    readButton.classList.add("readButton");
+
+    readButton.addEventListener("click", () => {
+      book.toggleRead(); // Cambia el estado
+      displayBooks(); // Re-renderiza la lista
+    });
+    readButton.classList.add("readButton");
 
     deleteButton.appendChild(trashLogo);
-
+    deleteButton.addEventListener("click", () => {
+      const index = myLibrary.findIndex((b) => b.id === book.id);
+      if (index > -1) {
+        myLibrary.splice(index, 1);
+      }
+      displayBooks();
+    });
     bookDiv.appendChild(titleElem);
     bookDiv.appendChild(authorElem);
     bookDiv.appendChild(pagesElem);
     bookDiv.appendChild(deleteButton);
+    bookDiv.appendChild(readButton);
 
     booksContainer.appendChild(bookDiv);
   });
 }
+
+Book.prototype.toggleRead = function () {
+  this.read = !this.read;
+};

@@ -34,7 +34,7 @@ h1 {
 
 main {
   display: grid;
-  grid-template-columns: 1fr 5fr;
+  grid-template-columns: 1fr 4fr;
   gap: 5vw;
   padding: 10px;
 }
@@ -52,17 +52,18 @@ main {
 }
 
 .book {
-  background-color: rgb(222, 218, 173);
-  padding: 2vw;
   display: flex;
   flex-direction: column;
-  flex: 1;
-
+  justify-content: flex-start; /* Evita que los botones se solapen */
   position: relative;
+  padding: 2vw;
+  background-color: rgb(222, 218, 173);
+  flex: 1;
+  border-radius: 7px;
 }
 
 .logo {
-  width: 1.2rem;
+  width: 1.3rem;
   height: auto;
 }
 
@@ -76,13 +77,19 @@ main {
   right: 10px;
 }
 
+.deleteButton:hover {
+  transform: scale(1.1);
+  transition: 0.2s;
+  cursor: pointer;
+}
+
 dialog {
-  width: clamp(300px, 90%, 500px); /* Ancho responsive */
+  width: clamp(300px, 90%, 500px); 
   padding: 2rem;
   border-radius: 12px;
   border: none;
   box-shadow: 0 4px 25px rgba(0, 0, 0, 0.15);
-  position: relative; /* Necesario para posicionar el botón de cierre */
+  position: relative; 
 }
 
 /* Estilo para el fondo oscuro cuando el dialog está abierto */
@@ -137,7 +144,6 @@ dialog::backdrop {
   border-color: transparent;
 }
 
-/* Botón de envío "Add book" */
 #formulario button[type="submit"] {
   padding: 14px;
   border: none;
@@ -155,8 +161,6 @@ dialog::backdrop {
   background-color: #3e342a;
 }
 
-/* === ANIMACIÓN OPCIONAL PARA EL DIALOG === */
-
 dialog[open] {
   animation: fadeIn 0.3s ease-out;
 }
@@ -172,28 +176,27 @@ dialog[open] {
   }
 }
 
-
 .open-dialog-btn {
-  width: 70px;         
-  height: 70px;        
-  border-radius: 50%;  
-  background-color: #5a4b3c; 
-  border: none;        
-  
+  width: 7rem;
+  height: 7rem;
+  border-radius: 50%;
+  background-color: #5a4b3c;
+  border: none;
+
   display: flex;
   justify-content: center;
   align-items: center;
 
-  color: blanchedalmond; 
-  font-size: 2rem;       
+  color: blanchedalmond;
+  font-size: 2.3rem;
 
   cursor: pointer;
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .open-dialog-btn:hover {
-  background-color: #3e342a; 
-  transform: scale(1.1);  
+  background-color: #3e342a;
+  transform: scale(1.1);
 }
 
 /* Añade esto a tu archivo styles.css */
@@ -201,5 +204,51 @@ dialog[open] {
 .sidebar {
   display: flex;
   justify-content: center; /* Centra horizontalmente */
-  align-items: center;    /* Centra verticalmente */
+  align-items: center; /* Centra verticalmente */
+}
+
+.readButton {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: inherit;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+  margin-top: auto; /* Empuja el botón hacia abajo */
+  align-self: flex-start;
+}
+
+.readButton:not(.read) {
+  background-color: #a38d77; /* Tonalidad intermedia */
+  color: blanchedalmond;
+}
+
+.readButton.read {
+  background-color: #5a4b3c; /* Similar al botón de abrir diálogo */
+  color: blanchedalmond;
+}
+
+.readButton:hover {
+  transform: scale(1.05);
+}
+
+footer {
+  bottom: 0;
+  position: sticky;
+  text-align: center;
+  color: #333;
+}
+
+footer a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #333;
+  font-size: 1.5rem;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+footer a:hover {
+  color: #5a4b3c; /* Color de tu paleta */
+  transform: scale(1.1);
 }
