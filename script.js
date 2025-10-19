@@ -1,4 +1,30 @@
 const myLibrary = [];
+
+class Book {
+  constructor(title, author, pages) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this._read = false;
+
+    this.id = crypto.randomUUID();
+  }
+
+  toggleRead() {
+    this._read = !this._read;
+  }
+
+  get readStatus() {
+    return this._read ? "Read" : "Not read";
+  }
+
+  set read(value) {
+    if (typeof value === "boolean") {
+      this._read = value;
+    }
+  }
+}
+
 const book1 = new Book("El Quijote", "Miguel de Cervantes", 537);
 const book2 = new Book("Cien Años de Soledad", "Gabriel García Márquez", 496);
 const book3 = new Book(
@@ -9,18 +35,6 @@ const book3 = new Book(
 
 myLibrary.push(book1, book2, book3);
 displayBooks();
-
-function Book(title, author, pages) {
-  if (!new.target) {
-    throw Error("You must use the 'new' operator to call the constructor");
-  }
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = false;
-
-  this.id = crypto.randomUUID();
-}
 
 function addBookToLibrary() {
   let title = document.getElementById("title").value;
@@ -63,7 +77,7 @@ function displayBooks() {
     trashLogo.alt = "Delete";
 
     const readButton = document.createElement("button");
-    readButton.textContent = book.read ? "Read" : "Not Read";
+    readButton.textContent = book.readStatus;
     readButton.classList.add("readButton");
 
     readButton.addEventListener("click", () => {
@@ -89,7 +103,3 @@ function displayBooks() {
     booksContainer.appendChild(bookDiv);
   });
 }
-
-Book.prototype.toggleRead = function () {
-  this.read = !this.read;
-};
