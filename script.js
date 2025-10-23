@@ -1,5 +1,3 @@
-import trashFillSVG from "./images/trash-fill.svg";
-
 const myLibrary = [];
 
 class Book {
@@ -75,7 +73,7 @@ function displayBooks() {
 
     const trashLogo = document.createElement("img");
     trashLogo.classList.add("logo");
-    trashLogo.src = trashFillSVG;
+    trashLogo.src = "images/trash-fill.svg";
     trashLogo.alt = "Delete";
 
     const readButton = document.createElement("button");
@@ -86,6 +84,7 @@ function displayBooks() {
       book.toggleRead(); // Cambia el estado
       displayBooks(); // Re-renderiza la lista
     });
+    readButton.classList.add("readButton");
 
     deleteButton.appendChild(trashLogo);
     deleteButton.addEventListener("click", () => {
