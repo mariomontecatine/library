@@ -1,6 +1,6 @@
 # 📚 Library
 
-Pequeña aplicación web creada para **The Odin Project**, que permite añadir, mostrar y eliminar libros de una biblioteca personal.
+Pequeña aplicación web que permite añadir, mostrar y eliminar libros de una biblioteca personal.
 
 👉 **Demo:** [https://mariomontecatine.github.io/library/](https://mariomontecatine.github.io/library/)
 
