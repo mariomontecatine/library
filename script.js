@@ -73,7 +73,7 @@ function displayBooks() {
 
     const trashLogo = document.createElement("img");
     trashLogo.classList.add("logo");
-    trashLogo.src = "/images/trash-fill.svg";
+    trashLogo.src = "library/images/trash-fill.svg";
     trashLogo.alt = "Delete";
 
     const readButton = document.createElement("button");
