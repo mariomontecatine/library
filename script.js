@@ -40,15 +40,27 @@ function addBookToLibrary() {
   let title = document.getElementById("title").value;
   let author = document.getElementById("author").value;
   let pages = parseInt(document.getElementById("pages").value);
+  const formulario = document.getElementById("formulario");
 
   const book = new Book(title, author, pages);
   myLibrary.push(book);
 
   displayBooks();
 
-  document.getElementById("formulario").closest("dialog").close(); // cierra el dialog
-  document.getElementById("formulario").reset(); // limpia el formulario
+  formulario.closest("dialog").close();
+  formulario.reset();
 }
+
+title.addEventListener("input", (event) => {
+  title.setCustomValidity("");
+  if (!title.validity.valid) {
+    return;
+  }
+
+  if (!title.value.endsWith("mario")) {
+    title.setCustomValidity("Please enter a name finishing in Montecatine");
+  }
+});
 
 function displayBooks() {
   const booksContainer = document.getElementById("books-container");
@@ -84,7 +96,6 @@ function displayBooks() {
       book.toggleRead(); // Cambia el estado
       displayBooks(); // Re-renderiza la lista
     });
-    readButton.classList.add("readButton");
 
     deleteButton.appendChild(trashLogo);
     deleteButton.addEventListener("click", () => {
