@@ -51,13 +51,14 @@ function addBookToLibrary() {
   formulario.reset();
 }
 
+// Custom form validation
 title.addEventListener("input", (event) => {
   title.setCustomValidity("");
   if (!title.validity.valid) {
     return;
   }
 
-  if (!title.value.endsWith("mario")) {
+  if (!title.value.endsWith("Montecatine")) {
     title.setCustomValidity("Please enter a name finishing in Montecatine");
   }
 });
